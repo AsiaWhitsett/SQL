@@ -1,0 +1,152 @@
+Schema SQL:
+
+CREATE TABLE superstore (
+    item_id INTEGER PRIMARY KEY,
+    item_name TEXT,
+    category TEXT,
+    price DECIMAL(10, 2),
+    stock_quantity INTEGER,
+    average_rating DECIMAL(3, 2)
+);
+
+INSERT INTO superstore (item_id, item_name, category, price, stock_quantity, average_rating)
+VALUES
+    (1, 'Stainless Steel Cookware Set', 'Kitchen Supplies', 89.99, 50, 4.6),
+    (2, 'Memory Foam Mattress', 'Furnishings', 499.99, 30, 4.8),
+    (3, 'Smart LED TV', 'Electronics', 549.00, 20, 4.5),
+    (4, 'Robot Vacuum Cleaner', 'Appliances', 199.50, 40, 4.3),
+    (5, 'Wireless Bluetooth Speaker', 'Electronics', 39.99, 60, 4.2),
+    (6, 'Non-Stick Baking Set', 'Kitchen Supplies', 29.95, 80, 4.4),
+    (7, 'Cotton Bedding Set', 'Furnishings', 89.00, 25, 4.7),
+    (8, 'Smart Home Security Camera', 'Electronics', 79.95, 15, 4.1),
+    (9, 'Air Purifier', 'Appliances', 129.50, 35, 4.6),
+    (10, 'Premium Coffee Maker', 'Kitchen Supplies', 79.99, 50, 4.9),
+    (11, 'Ergonomic Office Chair', 'Furnishings', 189.00, 20, 4.5),
+    (12, 'Wireless Earbuds', 'Electronics', 49.99, 75, 4.3),
+    (13, 'Slow Cooker', 'Appliances', 49.95, 30, 4.7),
+    (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
+    (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
+    
+    
+-- © Copyright 2025 Break Into Tech  --
+
+1
+CREATE TABLE superstore (
+2
+    item_id INTEGER PRIMARY KEY,
+3
+    item_name TEXT,
+4
+    category TEXT,
+5
+    price DECIMAL(10, 2),
+6
+    stock_quantity INTEGER,
+7
+    average_rating DECIMAL(3, 2)
+8
+);
+9
+​
+10
+INSERT INTO superstore (item_id, item_name, category, price, stock_quantity, average_rating)
+11
+VALUES
+12
+    (1, 'Stainless Steel Cookware Set', 'Kitchen Supplies', 89.99, 50, 4.6),
+13
+    (2, 'Memory Foam Mattress', 'Furnishings', 499.99, 30, 4.8),
+14
+    (3, 'Smart LED TV', 'Electronics', 549.00, 20, 4.5),
+15
+    (4, 'Robot Vacuum Cleaner', 'Appliances', 199.50, 40, 4.3),
+16
+    (5, 'Wireless Bluetooth Speaker', 'Electronics', 39.99, 60, 4.2),
+17
+    (6, 'Non-Stick Baking Set', 'Kitchen Supplies', 29.95, 80, 4.4),
+18
+    (7, 'Cotton Bedding Set', 'Furnishings', 89.00, 25, 4.7),
+19
+    (8, 'Smart Home Security Camera', 'Electronics', 79.95, 15, 4.1),
+20
+    (9, 'Air Purifier', 'Appliances', 129.50, 35, 4.6),
+21
+    (10, 'Premium Coffee Maker', 'Kitchen Supplies', 79.99, 50, 4.9),
+22
+    (11, 'Ergonomic Office Chair', 'Furnishings', 189.00, 20, 4.5),
+23
+    (12, 'Wireless Earbuds', 'Electronics', 49.99, 75, 4.3),
+24
+    (13, 'Slow Cooker', 'Appliances', 49.95, 30, 4.7),
+25
+    (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
+26
+    (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
+27
+    
+28
+    
+29
+-- © Copyright 2025 Break Into Tech  --
+30
+​
+
+
+Query SQL:
+
+1 For this project i used SQL to query the superstore database to get information on order items by price.
+2 SELECT * FROM superstore
+3 ORDER BY price DESC
+4 ;
+5
+​6 For this project i used SQL to query the superstore database to get information on statistics about item prices (SUM, AVG, MIN, MAX, COUNT).
+7 SELECT SUM(price)
+8 AS total_price
+9 FROM superstore
+10 ;
+11
+​12 SELECT AVG(price)
+13 AS average_price
+14 FROM superstore;
+15
+​16
+​17 SELECT MIN(price)
+18 AS lowest_price
+19 FROM superstore;
+20
+​21
+​22 SELECT MAX(price)
+23 AS highest_price
+24 FROM superstore;
+25
+​26 SELECT COUNT(*)
+27 AS total_items
+28 FROM superstore;
+29
+​30 For this project i used SQL to query the superstore database to get information on statistics for item prices in the category "Kitchen Supplies".
+31 SELECT AVG(price) AS average_kitchen_price
+32 FROM superstore
+33 WHERE category = 'Kitchen Supplies';
+34
+​35 SELECT MAX(price) AS highest_kitchen_price
+36 FROM superstore
+37 WHERE category = 'Kitchen Supplies';
+38
+​39
+​40 SELECT MIN(price) AS lowest_kitchen_price
+41 FROM superstore
+42 WHERE category = 'Kitchen Supplies';
+43
+​44 SELECT COUNT(*) AS total_kitchen_items
+45 FROM superstore
+46 WHERE category = 'Kitchen Supplies';
+47
+​48 For this project i used SQL to query the superstore database to get information on how many items are priced below $100 by category.
+49 SELECT category, COUNT(*) AS items_below_100
+50 FROM superstore
+51 WHERE price < 100
+52 GROUP BY category;
+53
+​54
+-- my thought out question was how many items are priced below $100 by category?
+
