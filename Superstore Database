@@ -1,4 +1,4 @@
-Schema SQL:
+#This analysis utilized the following Superstore Database
 
 CREATE TABLE superstore (
     item_id INTEGER PRIMARY KEY,
@@ -92,7 +92,7 @@ VALUES
 ​
 
 
-Query SQL:
+# Analysis: 
 
 1 For this project i used SQL to query the superstore database to get information on order items by price.
 2 SELECT * FROM superstore
@@ -148,5 +148,4 @@ Query SQL:
 52 GROUP BY category;
 53
 ​54
--- my thought out question was how many items are priced below $100 by category?
 
