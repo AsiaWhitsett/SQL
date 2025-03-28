@@ -1,0 +1,57 @@
+# For this project, I downloaded Spotify data from Kaggle.
+# Then I created a table to insert Spotify data into.
+# Finally, I performed analytics on the data using SQL. 
+
+#Creating the table: 
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness text NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL 
+)
+
+#Then I inserted the Spotify Data .csv into the table.
+
+#Next, I explored the data using the following SQL. 
+
+#--Which track has the longest duration (in milliseconds)?
+SELECT track_name, artist_name, duration_ms
+FROM Spotifydata
+ORDER BY duration_ms DESC
+LIMIT 1;
+
+#--What is the average popularity score by artist?
+SELECT artist_name, AVG(popularity) AS avg_popularity
+FROM Spotifydata
+GROUP BY artist_name
+ORDER BY avg_popularity DESC;
+
+#--Which songs have both high energy (> 0.7) and high valence (> 0.7)?
+SELECT track_name, artist_name, energy, valence
+FROM Spotifydata
+WHERE energy > 0.7 AND valence > 0.7;
+
+#--List the top 5 tracks with the highest acousticness.
+SELECT track_name, artist_name, acousticness
+FROM Spotifydata
+ORDER BY acousticness DESC
+LIMIT 5;
+
+#--Which artists have songs with a speechiness over 0.1 (more spoken-word style)
+SELECT DISTINCT artist_name
+FROM Spotifydata
+WHERE speechiness > 0.1;
