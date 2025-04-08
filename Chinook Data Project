@@ -1,4 +1,4 @@
-
+#In this SQL project, I'm querying the Chinook database, which contains tables related to customers, employees, invoices, products, and music data. 
 
 #1
 -- Show Customers who are not in the US.
